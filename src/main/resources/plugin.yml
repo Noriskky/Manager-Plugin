@@ -1,0 +1,47 @@
+name: Manager
+version: '${project.version}'
+main: me.Noriskky.Manager
+api-version: 1.18
+authors: [ Noriskky ]
+description: You can Managed Player
+commands:
+  Manager:
+  sudo:
+  invsee:
+    aliases:
+      - inv
+  speed:
+    aliases:
+      - s
+      - geschwindigkeit
+  heal:
+    aliases:
+      - heilen
+  help:
+    aliases:
+      - ?
+  ChatClear:
+    aliases:
+      - cc
+  CmdSpy:
+  AutoVanish:
+    aliases:
+      - joinvanish
+  Fly:
+    aliases:
+      - fliegen
+      - f
+  msg:
+    aliases:
+      - message
+      - nachricht
+      - tell
+  Playerinfo:
+    aliases:
+      - pi
+  Vanish:
+    aliases:
+      - v
+      - unsichtbar
+softdepend:
+  - LuckPerms

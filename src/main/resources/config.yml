@@ -1,0 +1,42 @@
+#config.yml of the Manager Plugin
+Manager:
+  Main:
+    Prefix: "&9Manager §8×§r"
+    NoPermission: "%ErrorPrefix% &cYou have to do that!"
+    PlayerNotFound: "%ErrorPrefix% &cPlayer Not Found 404!"
+    OnlyPlayers: "%ErrorPrefix% &cThis is Only for Players!"
+    ErrorPrefix: "&8(&4!&8)&r"
+  ChatSystem:
+    active: true
+  Messages:
+    AutoVanish:
+      activate: "%Prefix% &7Your JoinVanish is now &9Activated &7, Please rejoin to Activate your vanish or execute /Vanish."
+      deactivate: "%Prefix% &7Your JoinVanish is now &9Deactivated &7, Please rejoin to Deactivate your vanish or execute /Vanish."
+    ChatClear:
+      Target: ""
+      Global: "%Prefix% &7Der Chat wurde von &9%Player%&7."
+    CmdSpy:
+      activate: ""
+      deactivate: ""
+      Format: ""
+    Fly:
+      activate: ""
+      deactivate: ""
+      activateother: ""
+      deactivateother: ""
+    Heal:
+      succesfully: ""
+      unsuccesfully: ""
+      succesfullyother: ""
+    Msg:
+      target: ""
+      sender: ""
+    Speed:
+      error: ""
+      succesfully: ""
+    Vanish:
+      activate: ""
+      deactivate: ""
+      activateother: ""
+      deactivateother: ""
+
