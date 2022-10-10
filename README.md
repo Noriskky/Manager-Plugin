@@ -1,2 +1,2 @@
 # Manager-Plugin
- Manager Plugin coded by Noriskky
+ Manager Plugin coded by Noriskky 
