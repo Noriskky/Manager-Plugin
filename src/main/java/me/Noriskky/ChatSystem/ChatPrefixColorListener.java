@@ -18,22 +18,34 @@ import java.util.regex.Pattern;
 public class ChatPrefixColorListener implements Listener {
     @EventHandler
     public void ChatPrefix(AsyncPlayerChatEvent event) {
-        if (Config.get().getBoolean("Manager.ChatSystem.active")) {
-            Player p = event.getPlayer();
-            User user = LuckPermsProvider.get().getPlayerAdapter(Player.class).getUser(p);
-            final Player all = event.getPlayer();
-            final String name = event.getPlayer().getName();
-            final String Prefix = user.getCachedData().getMetaData().getPrefix();
-            final String namecolor = user.getCachedData().getMetaData().getSuffix();
-            final ChatColor chatColor = org.bukkit.ChatColor.DARK_GRAY;
-            final String prefixseparator = " §r§l§8●§r ";
-            final String chatseparator = " §r§8§l»§7 ";
-            if (event.getMessage().contains("%")) {
-                p.sendMessage("§4Bitte benutze kein §l§n%§r§4§l§r§4 ,weil sonst sehr viele Fehlermeldungend in der Console ausgestuckt werden Wir Bitten um Ihr Verständnis");
-                event.setCancelled(true);
+            if (Config.get().getBoolean("Manager.ChatSystem.active")) {
+                if (Bukkit.getPluginManager().isPluginEnabled("LuckPerms")) {
+                Player p = event.getPlayer();
+                User user = LuckPermsProvider.get().getPlayerAdapter(Player.class).getUser(p);
+                final Player all = event.getPlayer();
+                final String name = event.getPlayer().getName();
+                final String Prefix = user.getCachedData().getMetaData().getPrefix();
+                final String namecolor = user.getCachedData().getMetaData().getSuffix();
+                final String prefixseparator = " §r§l§8●§r ";
+                final String chatseparator = " §r§8§l»§7 ";
+                if (event.getMessage().contains("%")) {
+                    p.sendMessage("§4Bitte benutze kein §l§n%§r§4§l§r§4 ,weil sonst sehr viele Fehlermeldungend in der Console ausgestuckt werden Wir Bitten um Ihr Verständnis");
+                    event.setCancelled(true);
+                } else {
+                    event.setFormat(Prefix + prefixseparator + namecolor + name + chatseparator + ChatColor.translateAlternateColorCodes('&', event.getMessage()));
+                }
             } else {
-                event.setFormat(Prefix + prefixseparator + namecolor + name + chatseparator + ChatColor.translateAlternateColorCodes('&', event.getMessage()));
-            }
+                    Player p = event.getPlayer();
+                    final String name = p.getName();
+                    final String message = event.getMessage();
+                    final String chatseparator = " §r§8§l»§7 ";
+                    if (event.getMessage().contains("%")) {
+                        p.sendMessage("§4Bitte benutze kein §l§n%§r§4§l§r§4 ,weil sonst sehr viele Fehlermeldungend in der Console ausgestuckt werden Wir Bitten um Ihr Verständnis");
+                        event.setCancelled(true);
+                    } else {
+                        event.setFormat(name + chatseparator + ChatColor.translateAlternateColorCodes('&', event.getMessage()));
+                    }
+                }
         }
     }
 }

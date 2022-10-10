@@ -13,7 +13,6 @@ Manager:
       activate: "%Prefix% &7Your JoinVanish is now &9Activated &7, Please rejoin to Activate your vanish or execute /Vanish."
       deactivate: "%Prefix% &7Your JoinVanish is now &9Deactivated &7, Please rejoin to Deactivate your vanish or execute /Vanish."
     ChatClear:
-      Target: ""
       Global: "%Prefix% &7Der Chat wurde von &9%Player%&7."
     CmdSpy:
       activate: ""

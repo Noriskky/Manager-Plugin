@@ -9,10 +9,13 @@ import me.Noriskky.utils.Config;
 import me.Noriskky.utils.VanishManager;
 import net.luckperms.api.LuckPerms;
 import org.bukkit.Bukkit;
-import org.bukkit.ChatColor;
+import org.bukkit.entity.Player;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.RegisteredServiceProvider;
 import org.bukkit.plugin.java.JavaPlugin;
+import org.jetbrains.annotations.NotNull;
+
+import java.util.ArrayList;
 
 public final class Manager extends JavaPlugin {
     private static Manager plugin;
@@ -26,15 +29,22 @@ public final class Manager extends JavaPlugin {
         new Config();
         plugin = this;
         instance = this;
-        RegisteredServiceProvider<LuckPerms> provider = Bukkit.getServicesManager().getRegistration(LuckPerms.class);
-        if (provider != null) {
-            LuckPerms api = provider.getProvider();
+        if (Bukkit.getPluginManager().isPluginEnabled("LuckPerms")) {
+            RegisteredServiceProvider<LuckPerms> provider = Bukkit.getServicesManager().getRegistration(LuckPerms.class);
+            if (provider != null) {
+                LuckPerms api = provider.getProvider();
+            }
         }
         command();
         listener();
         instance = this;
         this.vanishmanager = new VanishManager(this);
     }
+
+    public static void main(@NotNull Player args) {
+        ArrayList<Player> OnlinePlayers = new ArrayList<Player>();
+
+        }
 
     public static Manager getPlugin() {
         return plugin;
