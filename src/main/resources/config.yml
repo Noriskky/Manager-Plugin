@@ -1,4 +1,11 @@
 #config.yml of the Manager Plugin
+MySQL:
+  host: 'localhost'
+  port: '3306'
+  user: 'root'
+  password: ''
+  database: 'ManagerData'
+
 Manager:
   Main:
     Prefix: "&9Manager §8×§r"

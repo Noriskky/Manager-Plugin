@@ -2,6 +2,7 @@ package me.Noriskky;
 
 import me.Noriskky.ChatSystem.ChatPrefixColorListener;
 import me.Noriskky.ChatSystem.ProfanityFilterChat;
+import me.Noriskky.MySQL.MySQLConnector;
 import me.Noriskky.commands.*;
 import me.Noriskky.listener.CMDspyListener;
 import me.Noriskky.listener.JoinListener;
@@ -21,6 +22,7 @@ public final class Manager extends JavaPlugin {
     private static Manager plugin;
     private static Manager instance;
     private VanishManager vanishmanager;
+    private MySQLConnector mySQLConnector;
     private Manager manager;
 
     @Override
@@ -75,6 +77,10 @@ public final class Manager extends JavaPlugin {
         pm.registerEvents(new ProfanityFilterChat(), this);
         pm.registerEvents(new JoinListener(), this);
         pm.registerEvents(new CMDspyListener(), this);
+    }
+
+    public MySQLConnector getMySQLConnector() {
+        return mySQLConnector;
     }
 
     @Override

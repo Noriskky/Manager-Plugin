@@ -15,6 +15,7 @@ public class JoinListener implements Listener {
     @EventHandler
     public void onjoin(PlayerJoinEvent e) {
         Player player = (Player) e.getPlayer();
+
         if (player.hasPermission("Manager.vanish")) {
             if (player.hasMetadata("autovanish")) {
                 VanishManager vanishManager = Manager.getInstance().getVanishmanager();
