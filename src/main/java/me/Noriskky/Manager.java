@@ -6,6 +6,7 @@ import me.Noriskky.MySQL.MySQLConnector;
 import me.Noriskky.commands.*;
 import me.Noriskky.listener.CMDspyListener;
 import me.Noriskky.listener.JoinListener;
+import me.Noriskky.listener.QuitListener;
 import me.Noriskky.utils.Config;
 import me.Noriskky.utils.VanishManager;
 import net.luckperms.api.LuckPerms;
@@ -80,6 +81,7 @@ public final class Manager extends JavaPlugin {
         pm.registerEvents(new ChatPrefixColorListener(), this);
         pm.registerEvents(new ProfanityFilterChat(), this);
         pm.registerEvents(new JoinListener(), this);
+        pm.registerEvents(new QuitListener(), this);
         pm.registerEvents(new CMDspyListener(), this);
     }
 
