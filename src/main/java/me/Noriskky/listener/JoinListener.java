@@ -1,6 +1,7 @@
 package me.Noriskky.listener;
 
 import me.Noriskky.Manager;
+import me.Noriskky.api.Api;
 import me.Noriskky.utils.Config;
 import me.Noriskky.utils.VanishManager;
 import net.luckperms.api.LuckPerms;
@@ -22,7 +23,6 @@ public class JoinListener implements Listener {
     @EventHandler
     public void onjoin(PlayerJoinEvent e) {
         Player player = (Player) e.getPlayer();
-
         if (player.hasPermission("Manager.vanish")) {
             if (player.hasMetadata("autovanish")) {
                 VanishManager vanishManager = Manager.getInstance().getVanishmanager();
@@ -45,17 +45,13 @@ public class JoinListener implements Listener {
                 player.sendMessage("§7Cmdspy is §9Deactivated§7 You can activate it with §9/CmdSpy§7.");
             }
         }
-        if (Bukkit.getPluginManager().isPluginEnabled("LuckPerms")) {
-            User user = LuckPermsProvider.get().getPlayerAdapter(Player.class).getUser(player);
-                }
-            User user = LuckPermsProvider.get().getPlayerAdapter(Player.class).getUser(player);
+        if (Bukkit.getPluginManager().isPluginEnabled("LuckPerms") || Bukkit.getPluginManager().isPluginEnabled("PowerRanks")) {
             Scoreboard scoreboard = player.getScoreboard();
-
-            scoreboard.registerNewTeam(user.getPrimaryGroup() + player.getName());
-            scoreboard.getTeam(user.getPrimaryGroup() + player.getName()).setPrefix(user.getCachedData().getMetaData().getPrefix() + " §r§l§8●§r ");
-            scoreboard.getTeam(user.getPrimaryGroup() + player.getName()).setSuffix(user.getCachedData().getMetaData().getSuffix());
-        scoreboard.getTeam(user.getPrimaryGroup() + player.getName()).setDisplayName(user.getCachedData().getMetaData().getSuffix() + player.getName());
-            scoreboard.getTeam(user.getPrimaryGroup() + player.getName()).addEntry(player.getName());
+            scoreboard.registerNewTeam(Api.getPrimaryRank(player) + player.getName());
+            scoreboard.getTeam(Api.getPrimaryRank(player) + player.getName()).setPrefix(Api.getPrefix(player) + " §r§l§8●§r ");
+            scoreboard.getTeam(Api.getPrimaryRank(player) + player.getName()).setSuffix(Api.getSuffix(player));
+            scoreboard.getTeam(Api.getPrimaryRank(player) + player.getName()).addEntry(player.getName());
         }
     }
+}
 

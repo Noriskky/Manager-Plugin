@@ -1,5 +1,6 @@
 package me.Noriskky.utils;
 
+import me.Noriskky.api.Api;
 import net.luckperms.api.LuckPermsProvider;
 import net.luckperms.api.model.user.User;
 import org.bukkit.Bukkit;
@@ -29,13 +30,13 @@ public class PlayerinfoUtils {
             ItemStack playerHead = new ItemStack(Material.PLAYER_HEAD, 1, (short) 3 );
             ArrayList<String> lore = new ArrayList<>();
             int lifePlayer = (int) player.getHealth();
-            lore.add(ChatColor.DARK_GRAY + "Rang §l»§r " + luckperms.getPrefix(p));
+            lore.add(ChatColor.DARK_GRAY + "Rang §l»§r " + Api.getPrefix(p));
             lore.add(ChatColor.DARK_GRAY + "Health §l»§r§c " + p.getHealth() + ChatColor.DARK_GRAY + " §l/§r §c" + p.getMaxHealth());
             lore.add(ChatColor.DARK_GRAY + "Ip §l»§r &9" + p.getAddress().getHostName());
             lore.add(ChatColor.DARK_GRAY + "Gamemode §l»§r §9" + p.getGameMode());
             SkullMeta itemMeta = (SkullMeta) playerHead.getItemMeta();
             itemMeta.setOwner(p.getName());
-            itemMeta.setDisplayName(luckperms.getPrefix(p) + " §r§l§8●§r " + namecolor + p.getName());
+            itemMeta.setDisplayName(Api.getPrefix(p) + " §r§l§8●§r " + namecolor + p.getName());
             playerHead.setItemMeta(itemMeta);
             Playerinfo.addItem(playerHead);
 

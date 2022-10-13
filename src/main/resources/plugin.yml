@@ -45,3 +45,4 @@ commands:
       - unsichtbar
 softdepend:
   - LuckPerms
+  - PowerRanks

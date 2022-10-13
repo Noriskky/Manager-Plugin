@@ -15,6 +15,7 @@ import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.RegisteredServiceProvider;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.jetbrains.annotations.NotNull;
+import nl.svenar.PowerRanks.api.PowerRanksAPI;
 
 import java.util.ArrayList;
 
@@ -36,6 +37,9 @@ public final class Manager extends JavaPlugin {
             if (provider != null) {
                 LuckPerms api = provider.getProvider();
             }
+        }
+        if (Bukkit.getPluginManager().isPluginEnabled("PowerRanks")) {
+            PowerRanksAPI PowerAPI = PowerRanksAPI.plugin.loadAPI();
         }
         command();
         listener();

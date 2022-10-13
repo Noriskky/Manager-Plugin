@@ -1,6 +1,7 @@
 package me.Noriskky.ChatSystem;
 
 import me.Noriskky.Manager;
+import me.Noriskky.api.Api;
 import me.Noriskky.utils.Config;
 import net.luckperms.api.LuckPermsProvider;
 import net.luckperms.api.model.user.User;
@@ -19,13 +20,12 @@ public class ChatPrefixColorListener implements Listener {
     @EventHandler
     public void ChatPrefix(AsyncPlayerChatEvent event) {
             if (Config.get().getBoolean("Manager.ChatSystem.active")) {
-                if (Bukkit.getPluginManager().isPluginEnabled("LuckPerms")) {
+                if (Bukkit.getPluginManager().isPluginEnabled("LuckPerms") || Bukkit.getPluginManager().isPluginEnabled("PowerRanks")) {
                 Player p = event.getPlayer();
-                User user = LuckPermsProvider.get().getPlayerAdapter(Player.class).getUser(p);
                 final Player all = event.getPlayer();
                 final String name = event.getPlayer().getName();
-                final String Prefix = user.getCachedData().getMetaData().getPrefix();
-                final String namecolor = user.getCachedData().getMetaData().getSuffix();
+                final String Prefix = Api.getPrefix(p);
+                final String namecolor = Api.getSuffix(p);
                 final String prefixseparator = " §r§l§8●§r ";
                 final String chatseparator = " §r§8§l»§7 ";
                 if (event.getMessage().contains("%")) {
