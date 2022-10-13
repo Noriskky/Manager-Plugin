@@ -17,13 +17,13 @@ Manager:
     active: true
   Messages:
     AutoVanish:
-      activate: "%Prefix% &7Your JoinVanish is now &9Activated &7, Please rejoin to Activate your vanish or execute /Vanish."
-      deactivate: "%Prefix% &7Your JoinVanish is now &9Deactivated &7, Please rejoin to Deactivate your vanish or execute /Vanish."
+      activate: "%Prefix% &7JoinVanish is now &9Activated &7for You, Please rejoin to Activate your vanish or execute /Vanish."
+      deactivate: "%Prefix% &7JoinVanish is now &9Deactivated &7for You, Please rejoin to Deactivate your vanish or execute /Vanish."
     ChatClear:
-      Global: "%Prefix% &7Der Chat wurde von &9%Player%&7."
+      Global: "%Prefix% &7The Chat was emptied by &9%Player%&7."
     CmdSpy:
-      activate: ""
-      deactivate: ""
+      activate: "%Prefix% &7CmdSpy was activated for You"
+      deactivate: "%Prefix% &7CmdSpy was activated for You"
       Format: ""
     Fly:
       activate: ""
@@ -35,8 +35,9 @@ Manager:
       unsuccesfully: ""
       succesfullyother: ""
     Msg:
-      target: ""
-      sender: ""
+      target: "%P-Rang% %Sender% &8&l» &r%T-Rang% %Target% &8&l»&r &7%Message%"
+      sender: "%T-Rang% %Target% &8&l» &r%P-Rang% %Sender% &8&l»&r &7%Message%"
+      selfmessage: ""
     Speed:
       error: ""
       succesfully: ""

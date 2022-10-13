@@ -7,12 +7,6 @@ import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.RegisteredServiceProvider;
 
-/**
- * JavaDoc this file!
- * Created: 25.09.2022
- *
- * @author WeLoveSpigotPlugins (welovespigotplugins@gmail.com)
- */
 public class luckperms {
 
     private static net.luckperms.api.LuckPerms luckPerms;
