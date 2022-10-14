@@ -2,8 +2,10 @@ package me.Noriskky.listener;
 
 import me.Noriskky.Manager;
 import me.Noriskky.api.Api;
+import me.Noriskky.utils.ColorUtil;
 import me.Noriskky.utils.Config;
 import me.Noriskky.utils.VanishManager;
+import net.kyori.adventure.text.format.NamedTextColor;
 import net.luckperms.api.LuckPerms;
 import net.luckperms.api.LuckPermsProvider;
 import net.luckperms.api.model.user.User;
@@ -50,6 +52,7 @@ public class JoinListener implements Listener {
             scoreboard.registerNewTeam(Api.getPrimaryRank(player) + player.getName());
             scoreboard.getTeam(Api.getPrimaryRank(player) + player.getName()).setPrefix(Api.getPrefix(player) + " §r§l§8●§r ");
             scoreboard.getTeam(Api.getPrimaryRank(player) + player.getName()).setSuffix(Api.getSuffix(player));
+            //scoreboard.getTeam(Api.getPrimaryRank(player) + player.getName()).setColor(ColorUtil.translate(Api.getNameColor(player)));
             scoreboard.getTeam(Api.getPrimaryRank(player) + player.getName()).addEntry(player.getName());
         }
     }

@@ -3,6 +3,7 @@ package me.Noriskky;
 import me.Noriskky.ChatSystem.ChatPrefixColorListener;
 import me.Noriskky.ChatSystem.ProfanityFilterChat;
 import me.Noriskky.MySQL.MySQLConnector;
+import me.Noriskky.api.Api;
 import me.Noriskky.commands.*;
 import me.Noriskky.listener.CMDspyListener;
 import me.Noriskky.listener.JoinListener;
@@ -15,6 +16,8 @@ import org.bukkit.entity.Player;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.RegisteredServiceProvider;
 import org.bukkit.plugin.java.JavaPlugin;
+import org.bukkit.scoreboard.Scoreboard;
+import org.bukkit.scoreboard.Team;
 import org.jetbrains.annotations.NotNull;
 import nl.svenar.PowerRanks.api.PowerRanksAPI;
 
@@ -29,6 +32,7 @@ public final class Manager extends JavaPlugin {
 
     @Override
     public void onEnable() {
+
         this.saveResource("config.yml", false);
         new Config();
         plugin = this;
@@ -55,6 +59,11 @@ public final class Manager extends JavaPlugin {
 
     public static Manager getPlugin() {
         return plugin;
+    }
+
+    public void unregTeam(Player player, Team team) {
+        Scoreboard scoreboard = player.getScoreboard();
+        scoreboard.getTeam(Api.getPrimaryRank(player) + player.getName()).unregister();
     }
 
     public void command() {

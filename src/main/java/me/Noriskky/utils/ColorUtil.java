@@ -1,12 +1,13 @@
 package me.Noriskky.utils;
 
 import org.bukkit.ChatColor;
+import org.jetbrains.annotations.NotNull;
 
 public class ColorUtil {
     public ColorUtil() {
     }
 
-    public static String translate(String message) {
-        return ChatColor.translateAlternateColorCodes('&', message);
+    public static @NotNull ChatColor translate(String message) {
+        return ChatColor.valueOf(ChatColor.translateAlternateColorCodes('&', message));
     }
 }

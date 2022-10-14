@@ -1,9 +1,7 @@
 package me.Noriskky.api;
 
-import me.Noriskky.Manager;
 import net.luckperms.api.LuckPermsProvider;
 import net.luckperms.api.model.user.User;
-import nl.svenar.PowerRanks.PowerRanks;
 import nl.svenar.PowerRanks.api.PowerRanksAPI;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -46,6 +44,16 @@ public class Api {
         } else if (Bukkit.getPluginManager().isPluginEnabled("LuckPerms")) {
             User user = LuckPermsProvider.get().getPlayerAdapter(Player.class).getUser(p);
             return user.getCachedData().getMetaData().getPrimaryGroup();
+        }
+        return null;
+    }
+
+    //GetNameColor
+    public static String getNameColor(Player p) {
+        if (Bukkit.getPluginManager().isPluginEnabled("PowerRanks")) {
+            PowerRanksAPI PowerAPI = PowerRanksAPI.plugin.loadAPI();
+            String Rank = PowerAPI.getPrimaryRank(p);
+            return PowerAPI.getNameColor(Rank);
         }
         return null;
     }
