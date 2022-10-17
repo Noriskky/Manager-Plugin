@@ -39,7 +39,7 @@ Manager:
       sender: "%T-Rang% %Target% &8&l» &r%P-Rang% %Sender% &8&l»&r &7%Message%"
       selfmessage: ""
     Speed:
-      error: ""
+      error: "%ErrorPrefix% &cYou can "
       succesfully: ""
     Vanish:
       activate: ""

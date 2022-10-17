@@ -57,6 +57,25 @@ public class Api {
         }
         return null;
     }
+
+    public static String getPrefixTeam(Player p) {
+        String PlayerName = p.getName();
+        String Weight = "1";
+        String Rank = Api.getPrimaryRank(p);
+        String PrefixTeam = Weight + "-" + Rank + "-" + PlayerName;
+        return PrefixTeam;
+    }
+
+    /*public static String getWeighttoString(Player p) {
+        if (Bukkit.getPluginManager().isPluginEnabled("PowerRanks")) {
+            PowerRanksAPI PowerAPI = PowerRanksAPI.plugin.loadAPI();
+            return PowerAPI.
+        } else if (Bukkit.getPluginManager().isPluginEnabled("LuckPerms")) {
+            User user = LuckPermsProvider.get().getPlayerAdapter(Player.class).getUser(p);
+            return user.getCachedData().getMetaData().getPrimaryGroup();
+        }
+        return null;
+    }*/
 }
 
 

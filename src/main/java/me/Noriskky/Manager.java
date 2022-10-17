@@ -6,8 +6,7 @@ import me.Noriskky.MySQL.MySQLConnector;
 import me.Noriskky.api.Api;
 import me.Noriskky.commands.*;
 import me.Noriskky.listener.CMDspyListener;
-import me.Noriskky.listener.JoinListener;
-import me.Noriskky.listener.QuitListener;
+import me.Noriskky.listener.ConnectionListener;
 import me.Noriskky.utils.Config;
 import me.Noriskky.utils.VanishManager;
 import net.luckperms.api.LuckPerms;
@@ -61,14 +60,8 @@ public final class Manager extends JavaPlugin {
         return plugin;
     }
 
-    public void unregTeam(Player player, Team team) {
-        Scoreboard scoreboard = player.getScoreboard();
-        scoreboard.getTeam(Api.getPrimaryRank(player) + player.getName()).unregister();
-    }
-
     public void command() {
         getCommand("msg").setExecutor(new MsgCMD());
-        getCommand("Playerinfo").setExecutor(new PlayerInfo());
         getCommand("Vanish").setExecutor(new VanishCMD());
         getCommand("Fly").setExecutor(new FlyCMD());
         getCommand("AutoVanish").setExecutor(new AutovanishCMD());
@@ -89,8 +82,7 @@ public final class Manager extends JavaPlugin {
         PluginManager pm = Bukkit.getPluginManager();
         pm.registerEvents(new ChatPrefixColorListener(), this);
         pm.registerEvents(new ProfanityFilterChat(), this);
-        pm.registerEvents(new JoinListener(), this);
-        pm.registerEvents(new QuitListener(), this);
+        pm.registerEvents(new ConnectionListener(), this);
         pm.registerEvents(new CMDspyListener(), this);
     }
 
@@ -100,5 +92,6 @@ public final class Manager extends JavaPlugin {
 
     @Override
     public void onDisable() {
+        ConnectionListener.deleteallTeams();
     }
 }
