@@ -6,6 +6,7 @@ import nl.svenar.PowerRanks.api.PowerRanksAPI;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
+import org.bukkit.scoreboard.Scoreboard;
 
 public class Api {
     private static net.luckperms.api.LuckPerms luckPerms;
@@ -64,6 +65,13 @@ public class Api {
         String Rank = Api.getPrimaryRank(p);
         String PrefixTeam = Weight + "-" + Rank + "-" + PlayerName;
         return PrefixTeam;
+    }
+
+    public static Player getPlayerfromTeam(String Team) {
+        Player player;
+        Scoreboard scoreboard = player.getScoreboard();
+        scoreboard.
+        return
     }
 
     /*public static String getWeighttoString(Player p) {

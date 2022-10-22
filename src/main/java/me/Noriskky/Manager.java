@@ -92,6 +92,5 @@ public final class Manager extends JavaPlugin {
 
     @Override
     public void onDisable() {
-        ConnectionListener.deleteallTeams();
     }
 }

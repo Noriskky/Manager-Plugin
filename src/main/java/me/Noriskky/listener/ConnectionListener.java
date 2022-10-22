@@ -10,10 +10,14 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.scoreboard.Scoreboard;
+import org.bukkit.scoreboard.Team;
 
 import java.util.ArrayList;
 
 public class ConnectionListener implements Listener {
+    public ArrayList<String> AllTeams() {
+        return null;
+    }
     @EventHandler
     public void onjoin(PlayerJoinEvent e) {
         Player player = (Player) e.getPlayer();
@@ -44,9 +48,8 @@ public class ConnectionListener implements Listener {
             scoreboard.registerNewTeam(Api.getPrefixTeam(player));
             scoreboard.getTeam(Api.getPrefixTeam(player)).setPrefix(Api.getPrefix(player) + " §r§l§8●§r ");
             scoreboard.getTeam(Api.getPrefixTeam(player)).setSuffix(Api.getSuffix(player));
-            //scoreboard.getTeam(Api.getPrimaryRank(player) + player.getName()).setColor(ColorUtil.translate(Api.getNameColor(player)));
             scoreboard.getTeam(Api.getPrefixTeam(player)).addEntry(player.getName());
-            ArrayList<String>
+            AllTeams().add(Api.getPrefixTeam(player));
         }
     }
 
@@ -58,11 +61,20 @@ public class ConnectionListener implements Listener {
             scoreboard.getTeam(Api.getPrefixTeam(player)).removeEntry(player.getName());
             scoreboard.getTeam(Api.getPrefixTeam(player)).unregister();
             Bukkit.getLogger().info(Api.getPrefixTeam(player) + " left & unregister Team: " + Api.getPrimaryRank(player) + player.getName());
-            
+            AllTeams().remove(Api.getPrefixTeam(player));
         }
     }
-    public static void deleteallTeams() {
 
+    public void deleteAllTeams() {
+        for (int i = 0; i < AllTeams().size(); i++) {
+            Player player;
+            Scoreboard scoreboard = player.getScoreboard();
+            ArrayList TeamPlayer = (ArrayList) scoreboard.getTeam(AllTeams().get(i)).getPlayers();
+            for (int o = 0; o < TeamPlayer.size(); o++) {
+                Player player1 = TeamPlayer.
+            }
+            AllTeams().get(i)
+        }
     }
 }
 
