@@ -61,6 +61,7 @@ public final class Manager extends JavaPlugin {
     }
 
     public void command() {
+        getCommand("clientbrand").setExecutor(new infocmd());
         getCommand("msg").setExecutor(new MsgCMD());
         getCommand("Vanish").setExecutor(new VanishCMD());
         getCommand("Fly").setExecutor(new FlyCMD());

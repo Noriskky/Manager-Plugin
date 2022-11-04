@@ -65,7 +65,7 @@ public class ConnectionListener implements Listener {
         }
     }
 
-    public void deleteAllTeams() {
+    /*public void deleteAllTeams() {
         for (int i = 0; i < AllTeams().size(); i++) {
             Player player;
             Scoreboard scoreboard = player.getScoreboard();
@@ -75,6 +75,6 @@ public class ConnectionListener implements Listener {
             }
             AllTeams().get(i)
         }
-    }
+    }*/
 }
 

@@ -4,7 +4,8 @@ main: me.Noriskky.Manager
 api-version: 1.18
 authors: [ Noriskky ]
 description: You can Managed Player
-commands: 
+commands:
+  clientbrand:
   invsee:
     aliases:
       - inv

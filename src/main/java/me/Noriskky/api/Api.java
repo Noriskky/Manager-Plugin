@@ -67,12 +67,12 @@ public class Api {
         return PrefixTeam;
     }
 
-    public static Player getPlayerfromTeam(String Team) {
+    /*public static Player getPlayerfromTeam(String Team) {
         Player player;
         Scoreboard scoreboard = player.getScoreboard();
         scoreboard.
         return
-    }
+    }*/
 
     /*public static String getWeighttoString(Player p) {
         if (Bukkit.getPluginManager().isPluginEnabled("PowerRanks")) {
